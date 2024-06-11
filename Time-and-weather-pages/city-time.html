@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Time</title>
+    <style>
+    h1 {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        #time {
+            font-size: 24px;
+            font-weight: 300;
+      
+            text-align: center;
+        }
+        body {
+            background-image: url("world.jpeg");
+            background-size: cover; 
+            margin: 20%;
+        }
+        .card { 
+    margin-right: auto; 
+    margin-left: auto; 
+    width: 500px; 
+    box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2); 
+    height: 300px; 
+    border-radius: 20px; 
+    backdrop-filter: blur(5px); 
+    background-color: rgba(255, 255, 255, 0.073); 
+    padding: 10px; 
+    text-align: center; 
+}
+    
+
+    </style>
+    <script>
+        // Function to show and update time every second
+        function showTime(time) {
+            const timeInterval = () => {
+                time.setSeconds(time.getSeconds() + 1);
+                document.getElementById('time').innerText = `${time.toLocaleTimeString()}`;
+            };
+            setInterval(timeInterval, 1000);
+            timeInterval(); // Initial call to display time immediately
+        }
+
+        // Initial call to display time with the current date and time
+        const currentTime = new Date(); // Initialize with current date and time
+        showTime(currentTime);
+    </script>
+</head>
+<body>
+    <div class="card">
+    <h1> The local time is...</h1>
+    <div id="time">Loading...
+    </div>
+</body>
+</html>
